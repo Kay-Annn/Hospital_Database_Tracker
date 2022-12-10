@@ -7,11 +7,11 @@ if (process.env.JAWSDB_URL) {//Heroku
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {//Localhost
   sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
+   'test',
+  'test',
+  'zLRdcdzc8ayJSfEA',
     {
-      host: 'localhost',
+      host: '101.201.123.36',
       dialect: 'mysql',
       port: 3306
     }
