@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet The Team</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <style>
+
+        body, html {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #1d243d;
+            padding: 0;
+            margin: 0;
+        }
+        .banner {
+            background-color: lightskyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        .card-wrapper {
+            margin: 75px;
+        }
+
+        .employee-card {
+            margin: 15px;
+            border-style: solid;
+            border-color: black;
+        }
+
+        .card-header {
+            background-color: lightskyblue;
+        }
+
+        .manager {
+            background-color: lightgoldenrodyellow;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/c1836db28e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col banner">
+            <h1>My Team</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center card-wrapper">
+
+
+    </div>
+</div>
+</body>
+</html>
+<script>
+    window.onload = function () {
+        let father = document.querySelector('.card-wrapper');
+        const options = {method: 'GET'};
+        fetch('http://localhost:3000/api/create/read', options)
+            .then(response => response.json())
+            .then(response => {
+                response.map((item,i)=>{
+                    father.innerHTML+=`
+                    <div class="card employee-card" style="width: 18rem;">
+                        <div class="card-header manager">
+                            <h2>${item.username}<br><i class="fas fa-user-tie"></i> ${item.role}</h2>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><span class="label">ID:</span> ${item.id}</li>
+                             <li class="list-group-item"><span class="label">email:</span> ${item.email}</li>
+                              <li class="list-group-item"><span class="label">ID:</span> ${item.id}</li>
+                        </ul>
+                    </div>
+
+                    `
+                })
+
+            })
+            .catch(err => console.error(err));
+    }
+</script>
+

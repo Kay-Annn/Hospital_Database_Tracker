@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='./static/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='./static/css/typicons.min.css'>
+    <link rel="stylesheet" href="./static/css/animate.min.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+
+</head>
+<body>
+<body id="particles-js">
+</body>
+<!--Log in-->
+<div class="animated bounceInDown">
+    <div class="container  "><span class="error animated tada" id="msg"></span>
+        <form name="form1" class="box" onsubmit="return false">
+            <h4>Express<span> DB</span></h4>
+            <h5>Sign in to your account.</h5>
+            <div class="radd" style="opacity: 0;" >
+                <div>
+                    <label>
+                        <input type="radio" name="q" value="nurse"><span></span><small class="rmb">Nurse</small>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="q" value="doctor"><span></span><small class="rmb">Doctor</small>
+                    </label>
+                </div>
+
+
+
+            </div>
+            <input type="text" name="name" placeholder="name" autocomplete="off">
+            <i class="typcn typcn-eye" id="eye"></i>
+            <input type="password" name="password" placeholder="Passsword" id="pwd" autocomplete="off">
+            <label>
+                <input type="checkbox"><span></span><small class="rmb">Remember me</small>
+            </label>
+            <a href="javascript:;" class="forgetpass">Forget Password?</a>
+            <input type="submit" value="Sign in" class="btn1" onclick="checkStuff()">
+        </form>
+        <a href="javascript:;" class="dnthave" onclick="dnthave()">Don’t have an account? Sign up</a>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    var eye = document.getElementById('eye');
+    var pwd = document.getElementById('pwd');
+    var isz = false
+    eye.onclick = function () {
+        if (pwd.type == 'password') {
+            pwd.type = 'text';
+        } else {
+            pwd.type = 'password';
+        }
+    }
+
+    function checkStuff() {
+        var name = document.form1.name.value;
+        var password = document.form1.password.value;
+        var q = document.form1.q.value||null;
+        if(isz && q == null){
+            alert('role unselected')
+            return false;
+        }
+        if ((name == "" || password == "")&&!isz) {
+            alert("Username or password cannot be null");
+            return false;
+        }
+        const options = {
+                method: 'POST',
+                body: `{"name":"${name}","password":"${password}","role":"${q}"}`,
+                headers: {'Content-Type': 'application/json'}
+            };
+            fetch('http://localhost:3000/api/create/login', options)
+                .then(response => response.json())
+                .then(response => {
+                    alert(response.msg)
+                    if (response.code == 200) {
+                        location.replace('http://localhost:3000/api/create/')
+                    }
+                })
+                .catch(err => console.error(err));
+
+
+    }
+    function dnthave() {
+        console.log('%c start testing ', 'color:#fff; background:#00897b ')
+        console.log(document.querySelector('.radd').style.opacity)
+
+        if (document.querySelector('.radd').style.opacity == 0) {
+            isz = true
+            document.querySelector('.radd').style.opacity = 1;
+            document.querySelector('.dnthave').innerHTML = 'Sign in to your account.';
+            document.querySelector('h5').innerHTML = 'Don’t have an account? Sign up';
+            document.querySelector('.btn1').value = 'Sign up';
+        } else {
+            isz = false
+            document.querySelector('.radd').style.opacity = 0;
+            document.querySelector('.dnthave').innerHTML = 'Don’t have an account? Sign up';
+            document.querySelector('h5').innerHTML = 'Sign in to your account.';
+            document.querySelector('.btn1').value = 'Sign in';
+
+        }
+    }
+</script>
