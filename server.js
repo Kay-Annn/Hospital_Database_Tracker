@@ -1,41 +1,46 @@
-//imports
-const path = require("path");
-const express = require("express");
-const expressHandlebars = require("express-handlebars");
-const routes = require("./controllers/index.js");
-const helpers = require("./utils/helpers");
-const sequelize = require("./config/connection");
-/*           possible session store import            */
-//app and port
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const app = express();
-
 const PORT = process.env.PORT || 3001;
-//setup handlebars engine with custom helps support
-const handlebars = expressHandlebars.create({ helpers });
-/*
 
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ helpers });
 
-Session (and cookie) code block here
+const options = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
+app.use(session(options));
 
-*/
+// Inform Express.js on which template engine to use
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-//app.use(session(sess));
-
-//set default template engine for express to handlebars engine
-app.engine("handlebars", handlebars.engine);
-app.set("view-engine", "handlebars");
-//set up server with middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
-//turn on routes
 app.use(routes);
-//start server
+
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Now listening on ${PORT}` ));
-  });
+  app.listen(PORT, () => console.log(`Now listening on ${PORT}!` ));
+});
