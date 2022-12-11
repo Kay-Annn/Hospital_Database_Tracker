@@ -2,37 +2,10 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 
-router.get('/', async (req, res) => {
-
-  // find all users
-  try {
-    const allUsers = await User.findAll({
-    });
-    res.status(200).json(allUsers);
-
-  } catch (error) {
-    res.status(500).json(error);
-  }
-
-});
-
-router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 router.post('/login', async (req, res) => {
   try {
+    
     // check user e-mail exist
     const userInfo = await User.findOne({
       where: { email: req.body.email },
@@ -43,25 +16,20 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = userInfo.username;      
       req.session.logged_in = true;
-
-    res.json({ user: userInfo, message: 'You are now logged in!' });
     });
+
+    res.render('userdashboard');
+  
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err)
+    res.status(500).json(err);
   }
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+
 
 module.exports = router;
