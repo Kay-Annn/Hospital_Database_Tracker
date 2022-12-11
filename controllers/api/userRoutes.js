@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
     });
 
-    res.render('userdashboard');
+    res.render('homepage');
   
   } catch (err) {
     console.log(err)
