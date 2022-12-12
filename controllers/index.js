@@ -1,18 +1,15 @@
 //imports
 const router = require("express").Router();
-const apiRoutes = require("./api");
+const apiRoutes = require('./api');
 const homeRoutes = require("./homeRoutes")
 
 //insert other route imports (homepage, dashboard, etc)
-router.use('/user', homeRoutes);
+router.use('/', homeRoutes);
 
 //turning on routes for api endpoints, ...
-router.use("/api", apiRoutes);
+router.use('/api', apiRoutes);
 
 
-router.use((req, res) => {//404 redirect
-    res.status(404).end();
-});
 
 module.exports = router;
 
