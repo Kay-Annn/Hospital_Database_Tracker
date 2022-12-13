@@ -1,4 +1,4 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class employee extends Model {
@@ -19,12 +19,20 @@ employee.init(
             allowNull: false,
         },
 
+        floor_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: "floor",
+                key: "id"
+            },
+        },
+
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
             unique: true,
-            model:'User',
-            key:'id',
+            model: 'User',
+            key: 'id',
 
         }
     },
