@@ -9,7 +9,7 @@ const loginFormHandler = async (event) => {
     if (email && password) {
    
       // Send a POST request to the API endpoint
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/users/getUser', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -21,6 +21,7 @@ const loginFormHandler = async (event) => {
         document.location.replace('/homepage');
       } else {
         alert(response.statusText);
+        alert("Incorrect e-mail or password entered");
       }
     }
   };
@@ -43,6 +44,7 @@ const loginFormHandler = async (event) => {
         document.location.replace('/user');
       } else {
         alert(response.statusText);
+       
       }
     }
   };

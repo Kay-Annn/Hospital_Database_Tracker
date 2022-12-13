@@ -9,7 +9,5 @@ router.use('/', homeRoutes);
 //turning on routes for api endpoints, ...
 router.use('/api', apiRoutes);
 
-
-
 module.exports = router;
 

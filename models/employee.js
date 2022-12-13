@@ -14,30 +14,19 @@ employee.init(
             autoIncrement: true,
         },
 
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-
         role: {
             type: DataTypes.STRING,
             allowNull: false,
         },
 
-        email: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: true,
             unique: true,
-            defaultValue: '',
+            model:'User',
+            key:'id',
 
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [6],
-            },
-        },
+        }
     },
     {
         hooks: {

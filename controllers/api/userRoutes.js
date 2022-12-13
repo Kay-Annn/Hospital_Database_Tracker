@@ -1,11 +1,25 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Employee } = require('../../models');
 
-
-
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    
+    const userInfo = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userInfo.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
+router.post('/getUser', async (req, res) => {
+  try {
+
     // check user e-mail exist
     const userInfo = await User.findOne({
       where: { email: req.body.email },
@@ -16,14 +30,61 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    
+    // const validPassword = userInfo.checkPassword(req.body.password);
+
+
+    // if (!validPassword) {
+    //   console.log(req.body.password)
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect email or password, please try again' });
+    //   return;
+    // }
+
     req.session.save(() => {
-      req.session.user_id = userInfo.username;      
+      req.session.user_id = userInfo.username;
       req.session.logged_in = true;
     });
-
+    // //renders homepage handlebar
     res.render('homepage');
-  
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+
+
+router.post('/signupUser', async (req, res) => {
+  try {
+
+    // check user e-mail exist
+    console.log(req.body.username)
+    const userInfo = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    }
+    );
+
+    console.log(userInfo)
+
+    if (userInfo.dataValues) {
+      const role = await Employee.create({
+        role: req.body.role,
+        id: userInfo.dataValues.id
+      }
+      );
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userInfo.username;
+      req.session.logged_in = true;
+    });
+    // //renders homepage handlebar
+    res.render('homepage');
+
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
