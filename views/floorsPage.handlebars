@@ -1,0 +1,20 @@
+<table class="table"></table>
+<thead>
+    <tr>
+        <th scope="col">ID #</th>
+        <th scope="col">Department Name</th>
+        <th scope="col">Procedure</th>
+        <th scope="col">Actions</th>
+    </tr>
+</thead>
+{{#each floors as |floor| }}
+<tbody>
+    <tr>
+        <th scope="row">{{floor.id}}</th>
+        <td>{{floor.Department}}</td>
+        <td>{{floor.Procedure}}</td>
+        <td><a href="" class="btn">Edit</a><a href="" class="btn">Delete</a></td>
+    </tr>
+</tbody>
+{{/each}}
+</table>

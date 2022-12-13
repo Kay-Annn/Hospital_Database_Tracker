@@ -51,5 +51,23 @@ router.get('/user', checkAuth, async (req, res) => {
 });
 
 
+router.get('/floors', checkAuth, async (req, res) => {
+
+  const floorInfo = await Floor.findAll();
+
+  const floorData = floorInfo.get({plain: true});
+
+  if (floorInfo) {
+    res.render('floorsPage', {
+      ...floorData,
+      username: userInfo.dataValues.username,
+      logged_in: true
+    });
+  }
+  else{
+    res.redirect('/login');
+  }
+  
+});
 
 module.exports = router;
