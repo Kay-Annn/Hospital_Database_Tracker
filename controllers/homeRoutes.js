@@ -27,8 +27,6 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-
-
 router.get('/homepage', checkAuth, async (req, res) => {
 
   const userInfo = await User.findOne({
@@ -41,12 +39,29 @@ router.get('/homepage', checkAuth, async (req, res) => {
       logged_in: true
     });
   }
-  else{
+  else {
     res.redirect('/login');
   }
-  
+
 });
 
+router.get('/floors', checkAuth, async (req, res) => {
 
+  const floorInfo = await Floor.findAll();
+
+  const floorData = floorInfo.get({ plain: true });
+
+  if (floorInfo) {
+    res.render('floorsPage', {
+      ...floorData,
+      username: userInfo.dataValues.username,
+      logged_in: true
+    });
+  }
+  else {
+    res.redirect('/login');
+  }
+
+});
 
 module.exports = router;
