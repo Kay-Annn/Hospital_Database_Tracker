@@ -7,11 +7,30 @@ const Patient = require("./Patient");
 
 //table relations
 
-Floor.hasMany( Employee, {
-    foreignKey: "floor_id"
+Employee.belongsTo(User, {
+    foreignKey: 'user_id',
 });
-Floor.hasMany( Patient, {
+
+// Categories have many Products
+User.hasMany(Employee, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
+
+Employee.belongsTo(Floor, {
+    foreignKey: "floor_id",
+});
+
+Floor.hasMany(Employee, {
     foreignKey: "floor_id"
 });
 
-module.exports = {Floor, User, Patient, Employee};
+Patient.belongsTo(Floor, {
+    foreignKey: "floor_id",
+});
+
+Floor.hasMany(Patient, {
+    foreignKey: "floor_id"
+});
+
+module.exports = { Floor, User, Patient, Employee };

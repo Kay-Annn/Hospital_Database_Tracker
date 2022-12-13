@@ -1,4 +1,4 @@
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Employee extends Model {
@@ -14,30 +14,11 @@ Employee.init(
             autoIncrement: true,
         },
 
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-
         role: {
             type: DataTypes.STRING,
             allowNull: false,
         },
 
-        email: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            unique: true,
-            defaultValue: '',
-
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [6],
-            },
-        },
         floor_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -45,6 +26,15 @@ Employee.init(
                 key: "id"
             },
         },
+
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            unique: true,
+            model: 'User',
+            key: 'id',
+
+        }
     },
     {
         hooks: {
