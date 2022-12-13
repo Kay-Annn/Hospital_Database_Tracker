@@ -1,48 +1,95 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome {{username}}!</h2>
+<section class="d-flex flex-row justify-content-between">
+  <div class="col-md-8">
+   
+    <div class="card gradient">
+  <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-steth" style="height:18rem" alt="...">
+  <div class="card-img-overlay">
+    <h5 class="card-title">Welcome</h5>
+    <h4 class="card-title">{{username}}</h4>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Users:</h3>
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">Name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">Email:</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">Phone:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
-
-    {{#each projects as |project|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+    <div class="card" style="width: 55rem; height: 8rem;">
+      <div class="card-body">
+        <p class="card-text padding: 10rem;">We are happy to be of service to you and trust you will be able to find all
+          you need today.
+          Together we will build a healthier Canada &#128513;
+        </p>
       </div>
     </div>
-    {{/each}}
+    <div>
+      <h4 class="text-muted">Top Doctors</h4>
+
+      <div class="d-flex justify-content-between">
+        <div class="card" style="width: 18rem;">
+          <img class="card-steth" src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" style="height: 18rem;" alt="...">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-steth" src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" style="height: 18rem;" alt="...">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img class="card-steth" src="https://images.pexels.com/photos/5452297/pexels-photo-5452297.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" style="height: 18rem;"  alt="...">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-  {{/if}}
+<div class="col-md-1"></div>
+  <div class="col-md-3">
+
+    <div class="card" style="height: 41rem;">
+      <div class="card-body">
+        <p class="card-text padding: 10rem;">We are happy to be of service to you and trust you will be able to find all
+          you need today.
+          Together we will build a healthier Canada &#128513;
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+{{#if users.length}}
+<div class="col-md-6 project-list">
+  <h3>Current Users:</h3>
+
+  {{#each users as |users|}}
+  <div class="row mb-2">
+    <div class="col-md-8">
+      <h4><a href="/user/{{user.id}}">{{user.username}}</a></h4>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-sm btn-danger" data-id="{{user.id}}">DELETE</button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
 </div>
 
 <script src="./js/profile.js"></script>
