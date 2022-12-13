@@ -30,16 +30,16 @@ router.post('/getUser', async (req, res) => {
       return;
     }
 
-    // const validPassword = userInfo.checkPassword(req.body.password);
+    const validPassword = userInfo.checkPassword(req.body.password);
 
 
-    // if (!validPassword) {
-    //   console.log(req.body.password)
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Incorrect email or password, please try again' });
-    //   return;
-    // }
+    if (!validPassword) {
+      console.log(req.body.password)
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
 
     req.session.save(() => {
       req.session.user_id = userInfo.username;
