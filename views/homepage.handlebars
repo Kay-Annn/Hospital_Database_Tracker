@@ -1,16 +1,17 @@
 <section class="d-flex flex-row justify-content-between">
-  <div class="col-md-8">
-   
-    <div class="card gradient">
-  <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-steth" style="height:18rem" alt="...">
-  <div class="card-img-overlay">
-    <h5 class="card-title">Welcome</h5>
-    <h4 class="card-title">{{username}}</h4>
-  </div>
-</div>
+  <div class="col-xs-12 col-sm-12 col-md-7">
+    <div class="card gradient col-xs-12 ">
+      <img
+        src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        class="card-steth" style="height:18rem" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Welcome</h5>
+        <h4 class="card-title">{{username}}</h4>
+      </div>
+    </div>
 
 
-    <div class="card" style="width: 55rem; height: 8rem;">
+    <div class="card col-xs-12" style="height: 8rem;">
       <div class="card-body">
         <p class="card-text padding: 10rem;">We are happy to be of service to you and trust you will be able to find all
           you need today.
@@ -21,75 +22,130 @@
     <div>
       <h4 class="text-muted">Top Doctors</h4>
 
-      <div class="d-flex justify-content-between">
-        <div class="card" style="width: 18rem;">
-          <img class="card-steth" src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" style="height: 18rem;" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+      <div class="row">
+        {{#each topDoctors as |user| }}
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <img class="card-steth"
+              src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
+              class="card-img-top" style="height: 18rem;" alt="...">
+            <div class="card-body">
+              <p class="card-text">{{user.docName}}</p>
+              <p class="card-text">{{user.docDepartment}}</p>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+            </div>
           </div>
         </div>
-
-        <div class="card" style="width: 18rem;">
-          <img class="card-steth" src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" style="height: 18rem;" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-          <img class="card-steth" src="https://images.pexels.com/photos/5452297/pexels-photo-5452297.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top" style="height: 18rem;"  alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-          </div>
-        </div>
-
+        {{/each}}
       </div>
     </div>
   </div>
-<div class="col-md-1"></div>
-  <div class="col-md-3">
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
 
-    <div class="card" style="height: 41rem;">
+    <div class="card">
       <div class="card-body">
         <p class="card-text padding: 10rem;">We are happy to be of service to you and trust you will be able to find all
           you need today.
           Together we will build a healthier Canada &#128513;
         </p>
       </div>
+      <div class="column p-2">
+        <div class="col-12">
+          <div class="card avatarcontainer p-2">
+            <p class="card-text">9:00 am to 9:30 am</p>
+            <div class="d-flex">
+              <img class="avatar"
+                src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
+              <div class="card-body">
+                <p class="card-text fw-bold">Maurice Chestnut</p>
+                <div class="row">
+                  <div class="col-6">
+                    <p class="card-text text-muted fs-6">Consultation with</p>
+                  </div>
+                  <div class="col-6">
+                    <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card avatarcontainer p-2">
+            <p class="card-text">9:00 am to 9:30 am</p>
+            <div class="d-flex">
+              <img class="avatar"
+                src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
+              <div class="card-body">
+                <p class="card-text fw-bold">Maurice Chestnut</p>
+                <div class="row">
+                  <div class="col-6">
+                    <p class="card-text text-muted fs-6">Consultation with</p>
+                  </div>
+                  <div class="col-6">
+                    <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card avatarcontainer p-2">
+            <p class="card-text">9:00 am to 9:30 am</p>
+            <div class="d-flex">
+              <img class="avatar"
+                src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
+              <div class="card-body">
+                <p class="card-text fw-bold">Maurice Chestnut</p>
+                <div class="row">
+                  <div class="col-6">
+                    <p class="card-text text-muted fs-6">Consultation with</p>
+                  </div>
+                  <div class="col-6">
+                    <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card avatarcontainer p-2">
+            <p class="card-text">9:00 am to 9:30 am</p>
+            <div class="d-flex">
+              <img class="avatar"
+                src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
+              <div class="card-body">
+                <p class="card-text fw-bold">Maurice Chestnut</p>
+                <div class="row">
+                  <div class="col-6">
+                    <p class="card-text text-muted fs-6">Consultation with</p>
+                  </div>
+                  <div class="col-6">
+                    <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
+
 
   </div>
 
 </section>
-
-
-
-
-
-
-
-
-
-
-{{#if users.length}}
-<div class="col-md-6 project-list">
-  <h3>Current Users:</h3>
-
-  {{#each users as |users|}}
-  <div class="row mb-2">
-    <div class="col-md-8">
-      <h4><a href="/user/{{user.id}}">{{user.username}}</a></h4>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-sm btn-danger" data-id="{{user.id}}">DELETE</button>
-    </div>
-  </div>
-  {{/each}}
-</div>
-{{/if}}
-</div>
-
-<script src="./js/profile.js"></script>

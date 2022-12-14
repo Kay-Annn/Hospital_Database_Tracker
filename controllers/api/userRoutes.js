@@ -73,7 +73,7 @@ router.post('/signupUser', async (req, res) => {
     if (userInfo.dataValues) {
       const role = await Employee.create({
         role: req.body.role,
-        id: userInfo.dataValues.id
+        user_id:userInfo.dataValues.id
       }
       );
     }
@@ -92,5 +92,16 @@ router.post('/signupUser', async (req, res) => {
 });
 
 
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    // Remove the session variables
+    req.session.destroy(() => {
+      res.status(200).end();
+    });
+
+  } else {
+    res.status(404).end();
+  }
+});
 
 module.exports = router;

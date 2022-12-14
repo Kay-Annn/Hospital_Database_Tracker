@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Floor } = require('../models');
+const { User, Floor, Employee } = require('../models');
 const { getAttributes } = require('../models/Floor');
 const checkAuth = require('../utils/auth');
 
@@ -34,10 +34,31 @@ router.get('/homepage', checkAuth, async (req, res) => {
     where: { username: req.session.user_id },
   });
 
+  const doctorsInfo = await Employee.findAll({
+    limit: 2,
+    include: { model: User },
+  })
+
+  const topDocDetails = [
+    {
+    docName: "John",
+    docDepartment: "Cardiology",
+  },
+
+  {
+    docName: "Tracy",
+    docDepartment: "Cardiology",
+  },
+
+]
+
+  console.log("I am checking", doctorsInfo)
+
   if (userInfo) {
     res.render('homepage', {
       username: userInfo.dataValues.username,
-      logged_in: true
+      logged_in: true,
+      topDoctors: topDocDetails
     });
   }
   else {

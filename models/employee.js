@@ -33,7 +33,6 @@ Employee.init(
             unique: true,
             model: 'User',
             key: 'id',
-
         }
     },
     {
