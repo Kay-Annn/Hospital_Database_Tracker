@@ -3,6 +3,7 @@
   
     const username = document.querySelector('#username-signup').value.trim();
     const role = document.querySelector('#role-signup').value.trim();
+    const roleOptions = document.querySelector('#roleOptions-signup').value.trim;  
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   

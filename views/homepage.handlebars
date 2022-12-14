@@ -1,6 +1,6 @@
 <section class="d-flex flex-row justify-content-between">
   <div class="col-xs-12 col-sm-12 col-md-7">
-    <div class="card gradient col-xs-12 ">
+    <div class="card border-light gradient col-xs-12 ">
       <img
         src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         class="card-steth" style="height:18rem" alt="...">
@@ -10,8 +10,7 @@
       </div>
     </div>
 
-
-    <div class="card col-xs-12" style="height: 8rem;">
+    <div class="card border-secondary col-xs-12" style="height: 8rem;">
       <div class="card-body">
         <p class="card-text padding: 10rem;">We are happy to be of service to you and trust you will be able to find all
           you need today.
@@ -24,8 +23,8 @@
 
       <div class="row">
         {{#each topDoctors as |user| }}
-        <div class="col-12 col-md-4">
-          <div class="card">
+        <div class="col-12 col-md-6">
+          <div class="card border-light">
             <img class="card-steth"
               src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
               class="card-img-top" style="height: 18rem;" alt="...">
@@ -45,28 +44,30 @@
     </div>
   </div>
   <div class="col-md-1"></div>
-  <div class="col-md-4">
-
-    <div class="card">
+  <div class="col-md-4 container">
+    <div class="card border-secondary">
       <div class="card-body">
         <p class="card-text padding: 10rem;">We are happy to be of service to you and trust you will be able to find all
           you need today.
           Together we will build a healthier Canada &#128513;
         </p>
       </div>
+      <div>
+        <h5 class="text-muted">Today's Appointments</h5>
+      </div>
       <div class="column p-2">
         <div class="col-12">
-          <div class="card avatarcontainer p-2">
+          <div class="card p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
             <div class="d-flex">
-              <img class="avatar"
+              <img class="avatar "
                 src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
               <div class="card-body">
                 <p class="card-text fw-bold">Maurice Chestnut</p>
                 <div class="row">
                   <div class="col-6">
-                    <p class="card-text text-muted fs-6">Consultation with</p>
+                    <p class="card-text text-muted fs-6 text-nowrap">Consultation with</p>
                   </div>
                   <div class="col-6">
                     <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
@@ -77,17 +78,17 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="card avatarcontainer p-2">
+          <div class="card p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
             <div class="d-flex">
-              <img class="avatar"
+              <img class="avatar "
                 src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
               <div class="card-body">
                 <p class="card-text fw-bold">Maurice Chestnut</p>
                 <div class="row">
                   <div class="col-6">
-                    <p class="card-text text-muted fs-6">Consultation with</p>
+                    <p class="card-text text-muted fs-6 text-nowrap">Consultation with</p>
                   </div>
                   <div class="col-6">
                     <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
@@ -98,17 +99,17 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="card avatarcontainer p-2">
+          <div class="card p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
             <div class="d-flex">
-              <img class="avatar"
+              <img class="avatar "
                 src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
               <div class="card-body">
                 <p class="card-text fw-bold">Maurice Chestnut</p>
                 <div class="row">
                   <div class="col-6">
-                    <p class="card-text text-muted fs-6">Consultation with</p>
+                    <p class="card-text text-muted fs-6 text-nowrap">Consultation with</p>
                   </div>
                   <div class="col-6">
                     <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
@@ -119,17 +120,17 @@
           </div>
         </div>
         <div class="col-12">
-          <div class="card avatarcontainer p-2">
+          <div class="card p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
             <div class="d-flex">
-              <img class="avatar"
+              <img class="avatar "
                 src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="profile picture of a smiling girl in black graduation cap and black gown with red and white trim">
               <div class="card-body">
                 <p class="card-text fw-bold">Maurice Chestnut</p>
                 <div class="row">
                   <div class="col-6">
-                    <p class="card-text text-muted fs-6">Consultation with</p>
+                    <p class="card-text text-muted fs-6 text-nowrap">Consultation with</p>
                   </div>
                   <div class="col-6">
                     <p class="card-text fw-bold fs-6">Dr.Pikachu</p>
@@ -139,7 +140,6 @@
             </div>
           </div>
         </div>
-
       </div>
 
     </div>
