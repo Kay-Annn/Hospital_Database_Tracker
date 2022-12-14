@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Floor, Employee } = require('../models');
+const { getAttributes } = require('../models/Floor');
 const checkAuth = require('../utils/auth');
 
 router.get('/login', (req, res) => {
@@ -68,14 +69,15 @@ router.get('/homepage', checkAuth, async (req, res) => {
 
 router.get('/floors', checkAuth, async (req, res) => {
 
-  const floorInfo = await Floor.findAll();
-
-  const floorData = floorInfo.get({ plain: true });
+  const floorInfo = await Floor.findAll(
+    {attributes: ["id", "department", "procedure"]}
+  );
+  console.log(floorInfo);
+  //const floorData = floorInfo.get({ plain: true });
 
   if (floorInfo) {
     res.render('floorsPage', {
-      ...floorData,
-      username: userInfo.dataValues.username,
+      floorInfo,
       logged_in: true
     });
   }
