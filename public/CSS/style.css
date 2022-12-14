@@ -42,3 +42,7 @@ header,
   background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(137, 145, 240));
 }
 
+.checked {
+  color: orange;
+}
+
