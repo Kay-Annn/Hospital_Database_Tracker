@@ -55,3 +55,9 @@ header,
   height: 50px;
   border-radius: 75%;
 }
+
+
+.custom-centered{
+  margin:0 auto;
+  width:300px;
+ }

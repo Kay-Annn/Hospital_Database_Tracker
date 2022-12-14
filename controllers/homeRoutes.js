@@ -39,6 +39,10 @@ router.get('/homepage', checkAuth, async (req, res) => {
     include: { model: User },
   })
 
+  doctorsInfo.map((currElement, index) => {
+    console.log("The current iteration is: " + currElement);
+  });
+
   const topDocDetails = [
     {
     docName: "John",
@@ -49,10 +53,8 @@ router.get('/homepage', checkAuth, async (req, res) => {
     docName: "Tracy",
     docDepartment: "Cardiology",
   },
-
 ]
-
-  console.log("I am checking", doctorsInfo)
+ 
 
   if (userInfo) {
     res.render('homepage', {
@@ -86,5 +88,14 @@ router.get('/floors', checkAuth, async (req, res) => {
   }
 
 });
+
+router.get('/patients', checkAuth, async (req, res) => {
+
+    res.render('patient', {
+      logged_in: true
+    });
+});
+
+
 
 module.exports = router;
