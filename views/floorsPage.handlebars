@@ -7,12 +7,13 @@
         <th scope="col">Actions</th>
     </tr>
 </thead>
-{{#each floors as |floor| }}
 <tbody>
+    {{#each floor}}
+    {{dataValues}}
     <tr>
-        <th scope="row">{{floor.id}}</th>
-        <td>{{floor.Department}}</td>
-        <td>{{floor.Procedure}}</td>
+        <th scope="row">{{id}}</th>
+        <td>{{department}}</td>
+        <td>{{procedure}}</td>
         <td><a href="" class="btn">Edit</a><a href="" class="btn">Delete</a></td>
     </tr>
 </tbody>
