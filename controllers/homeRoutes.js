@@ -41,15 +41,20 @@ router.get('/homepage', checkAuth, async (req, res) => {
     include: { model: Employee },
   })
 
-  const doctors = doctorsInfo.map((project) => project.get({ plain: true }));
+  const listOfPatients = await Patient.findAll({
+    limit: 4,
+  })
 
-  console.log("my doctor list",doctors);
+  const doctors = doctorsInfo.map((doc) => doc.get({ plain: true }));
+  const listOfpatients = listOfPatients.map((pat) => pat.get({ plain: true }));
+ 
 
   if (userInfo) {
     res.render('homepage', {
       username: userInfo.dataValues.username,
       logged_in: true,
-      topDoctors: doctors
+      topDoctors: doctors,
+      patientList:listOfpatients
     });
   }
   else {
