@@ -66,8 +66,8 @@ router.get('/floors', checkAuth, async (req, res) => {
 });
  
 
-  const floorData = floorInfo.map((floor) => floor.get({ plain: false }));
-  
+  const floorData = floorInfo.map((floor) => floor.get({ plain: true }));
+
   if (floorInfo) {
     res.render('floorsPage', {
       floorInfo: floorData, 
