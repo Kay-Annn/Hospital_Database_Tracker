@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Floor, Employee } = require('../models');
+const { User, Floor, Employee, Patient } = require('../models');
 const { getAttributes } = require('../models/Floor');
 const checkAuth = require('../utils/auth');
 
@@ -32,35 +32,24 @@ router.get('/homepage', checkAuth, async (req, res) => {
 
   const userInfo = await User.findOne({
     where: { username: req.session.user_id },
+    include: { model: Employee },
   });
 
-  const doctorsInfo = await Employee.findAll({
+
+  const doctorsInfo = await User.findAll({
     limit: 2,
-    include: { model: User },
+    include: { model: Employee },
   })
 
-  doctorsInfo.map((currElement, index) => {
-    console.log("The current iteration is: " + currElement);
-  });
+  const doctors = doctorsInfo.map((project) => project.get({ plain: true }));
 
-  const topDocDetails = [
-    {
-    docName: "John",
-    docDepartment: "Cardiology",
-  },
-
-  {
-    docName: "Tracy",
-    docDepartment: "Cardiology",
-  },
-]
- 
+  console.log("my doctor list",doctors);
 
   if (userInfo) {
     res.render('homepage', {
       username: userInfo.dataValues.username,
       logged_in: true,
-      topDoctors: topDocDetails
+      topDoctors: doctors
     });
   }
   else {
@@ -71,18 +60,21 @@ router.get('/homepage', checkAuth, async (req, res) => {
 
 router.get('/floors', checkAuth, async (req, res) => {
 
-  const floorInfo = await Floor.findAll(
-    {attributes: ["id", "department", "procedure"]}
-  );
-  console.log(floorInfo);
-  //const floorData = floorInfo.get({ plain: true });
+  const floorInfo = await Floor.findAll({
+    include: { model: Patient },
+    // { attributes: ["id", "department", "procedure"] }
+});
+ 
+
+  const floorData = floorInfo.map((floor) => floor.get({ plain: true }));
 
   if (floorInfo) {
     res.render('floorsPage', {
-      floorInfo,
+      floorInfo: floorData, 
       logged_in: true
     });
   }
+
   else {
     res.redirect('/login');
   }
@@ -91,9 +83,9 @@ router.get('/floors', checkAuth, async (req, res) => {
 
 router.get('/patients', checkAuth, async (req, res) => {
 
-    res.render('patient', {
-      logged_in: true
-    });
+  res.render('patient', {
+    logged_in: true
+  });
 });
 
 

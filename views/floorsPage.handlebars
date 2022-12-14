@@ -1,21 +1,28 @@
-<table class="table"></table>
-<thead>
-    <tr>
-        <th scope="col">ID #</th>
-        <th scope="col">Department Name</th>
-        <th scope="col">Procedure</th>
-        <th scope="col">Actions</th>
-    </tr>
-</thead>
-<tbody>
-    {{#each floor}}
-    {{dataValues}}
-    <tr>
-        <th scope="row">{{id}}</th>
-        <td>{{department}}</td>
-        <td>{{procedure}}</td>
-        <td><a href="" class="btn">Edit</a><a href="" class="btn">Delete</a></td>
-    </tr>
-</tbody>
-{{/each}}
+<section class="col-8 row justify-content-center">
+</section>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID #</th>
+                <th scope="col">Department</th>
+                <th scope="col">Procedure</th>
+                <th scope="col">Number of Patients on Floor</th>
+            </tr>
+        </thead>
+        {{#each floorInfo as |floor| }}
+        <tbody>
+            <tr>
+                <th scope="row">{{floor.id}}</th>
+                <td>{{floor.department}}</td>
+                <td>{{floor.procedure}}</td>
+                <td>{{floor.patients.length}}</td>
+            </tr>
+
+        </tbody>
+        {{/each}}
+    </table>
+</div>
 </table>
+
+</section>
