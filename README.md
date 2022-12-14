@@ -10,14 +10,21 @@ A live demo link of this application can be found here:
 Here are some snippets of what some pages/endpoints look like:
 
 login:
+![image](https://user-images.githubusercontent.com/80120484/207736666-ff7b2499-57f0-4670-95da-9c7251f722ec.png)
+
 
 signup:
+![image](https://user-images.githubusercontent.com/80120484/207736711-4bc9a976-2683-420f-8c6e-878b07c324c7.png)
+
 
 hompage:
+![image](https://user-images.githubusercontent.com/80120484/207737361-fdb9167a-bcb7-4e3a-9412-1b678c423b4f.png)
 
 Floors:
+![image](https://user-images.githubusercontent.com/80120484/207737413-90c83447-473b-4cad-bf18-9bc501ab656c.png)
 
 Patients:
+![image](https://user-images.githubusercontent.com/80120484/207737469-66169b1a-cd90-4a42-9392-7c5b8b3a1ad4.png)
 
 ## License
 MIT
@@ -25,6 +32,6 @@ MIT
 ## Questions
 If you have any questions about this application, you may contact any one of us contributors/developers of this application at our emails:
 Kush: kushrpate06@yahoo.com
-Kay-Ann:
-Elvis:
-Dhriti:
+Kay-Ann: ckay_006@yahoo.com
+Elvis: scctsy@gmail.com
+Dhriti: Dhriti.sharma93@gmail.com
