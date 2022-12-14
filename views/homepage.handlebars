@@ -23,14 +23,15 @@
       <h4 class="text-muted">Top Doctors</h4>
 
       <div class="row">
+        {{#each topDoctors as |user| }}
         <div class="col-12 col-md-4">
           <div class="card">
             <img class="card-steth"
               src="https://images.pexels.com/photos/5998474/pexels-photo-5998474.jpeg?auto=compress&cs=tinysrgb&w=600"
               class="card-img-top" style="height: 18rem;" alt="...">
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+              <p class="card-text">{{user.docName}}</p>
+              <p class="card-text">{{user.docDepartment}}</p>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
               <span class="fa fa-star checked"></span>
@@ -39,39 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-            <img class="card-steth"
-              src="https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=600"
-              class="card-img-top" style="height: 18rem;" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card">
-            <img class="card-steth"
-              src="https://images.pexels.com/photos/5452297/pexels-photo-5452297.jpeg?auto=compress&cs=tinysrgb&w=600"
-              class="card-img-top" style="height: 18rem;" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </div>
-          </div>
-        </div>
-
+        {{/each}}
       </div>
     </div>
   </div>
@@ -85,7 +54,7 @@
           Together we will build a healthier Canada &#128513;
         </p>
       </div>
-      <div class="column p-2" >
+      <div class="column p-2">
         <div class="col-12">
           <div class="card avatarcontainer p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
@@ -107,7 +76,7 @@
             </div>
           </div>
         </div>
-           <div class="col-12">
+        <div class="col-12">
           <div class="card avatarcontainer p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
             <div class="d-flex">
@@ -128,7 +97,7 @@
             </div>
           </div>
         </div>
-           <div class="col-12">
+        <div class="col-12">
           <div class="card avatarcontainer p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
             <div class="d-flex">
@@ -149,7 +118,7 @@
             </div>
           </div>
         </div>
-           <div class="col-12">
+        <div class="col-12">
           <div class="card avatarcontainer p-2">
             <p class="card-text">9:00 am to 9:30 am</p>
             <div class="d-flex">
@@ -174,6 +143,7 @@
       </div>
 
     </div>
+
 
 
   </div>

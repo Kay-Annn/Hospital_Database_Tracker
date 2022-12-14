@@ -73,7 +73,7 @@ router.post('/signupUser', async (req, res) => {
     if (userInfo.dataValues) {
       const role = await Employee.create({
         role: req.body.role,
-        id: userInfo.dataValues.id
+        user_id:userInfo.dataValues.id
       }
       );
     }
