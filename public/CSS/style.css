@@ -39,7 +39,7 @@ header,
 }
 
 .card-img-overlay{
-  background-image: linear-gradient(to right, rgba(163, 73, 73, 0), rgb(137, 145, 240));
+  background-image: linear-gradient(to left, rgba(235, 212, 212, 0.172), rgb(67, 80, 217));
 }
 
 .checked {
@@ -55,7 +55,6 @@ header,
   height: 50px;
   border-radius: 75%;
 }
-
 
 .custom-centered{
   margin:0 auto;

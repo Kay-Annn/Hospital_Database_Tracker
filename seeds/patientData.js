@@ -13,7 +13,7 @@ const patientData = [
         CheckInDate: "2022-10-10",
         Procedure: "C-Section",
         PatientCost: "3333.30",
-        floor: "Neurology"
+        floor_id: 1,
     },
     {
         username: "William",
@@ -28,7 +28,7 @@ const patientData = [
         CheckInDate: "2022-11-27",
         Procedure: "Brain Surgery",
         PatientCost: "7435.20",
-        floor: "Neurology"
+        floor_id: 1,
     },
     {
         username: "Janet",
@@ -43,7 +43,7 @@ const patientData = [
         CheckInDate: "2022-10-10",
         Procedure: "stitches",
         PatientCost: "523.30",
-        floor: "Neurology"
+        floor_id: 4,
     },
     {
         username: "Bradley.lastman",
@@ -58,7 +58,7 @@ const patientData = [
         CheckInDate: "2022-11-21",
         Procedure: "open heart",
         PatientCost: "1286.99",
-        floor: "Neurology"
+        floor_id: 3,
     },
     {
         username: "Jason.may",
@@ -73,7 +73,7 @@ const patientData = [
         CheckInDate: "2022-12-14",
         Procedure: "yearly checkup",
         PatientCost: "120.76",
-        floor: "Neurology"
+        floor_id: 2,
     },
 ];
 const seedPatient = () => Patient.bulkCreate(patientData);
