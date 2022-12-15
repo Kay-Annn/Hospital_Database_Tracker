@@ -20,7 +20,7 @@ const options = {
   name: 'hospitalapp',
   cookie: {
     maxAge: 1000 * 60 * 60 * 48,
-    secure: true,
+    secure: false,
     sameSite: 'none'
   },
   resave: false,
