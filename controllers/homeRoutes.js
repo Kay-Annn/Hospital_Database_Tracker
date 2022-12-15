@@ -4,7 +4,7 @@ const { getAttributes } = require('../models/Floor');
 const checkAuth = require('../utils/auth');
 
 router.get('/login', (req, res) => {
-  console.log("incomming login",JSON.stringify(req.session))
+  console.log("incomming login",JSON.stringify(req))
   // If the user is already logged in, redirect the request to homepage 
   if (req.session.logged_in) {
     res.redirect('/homepage');
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/homepage', checkAuth, async (req, res) => {
-  console.log("incomiing session",JSON.stringify(req.session))
+  console.log("incomiing session",JSON.stringify(req))
   const userInfo = await User.findOne({
     where: { username: req.session.user_id },
     include: { model: Employee },
