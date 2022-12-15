@@ -77,13 +77,15 @@ router.post('/signupUser', async (req, res) => {
       );
     }
 
+    
+
     req.session.save(() => {
       req.session.user_id = userInfo.username;
       req.session.logged_in = true;
-    });
-    // //renders homepage handlebar
-    res.redirect('homepage');
 
+      res.status(200).json(userInfo);
+    });
+    
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
