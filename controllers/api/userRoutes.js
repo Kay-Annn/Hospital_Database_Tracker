@@ -82,7 +82,7 @@ router.post('/signupUser', async (req, res) => {
       req.session.logged_in = true;
     });
     // //renders homepage handlebar
-    res.render('homepage');
+    res.redirect('homepage');
 
   } catch (err) {
     console.log(err)
