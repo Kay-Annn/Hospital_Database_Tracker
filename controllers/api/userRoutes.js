@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Employee } = require('../../models');
 
-router.get('/', async (req, res) => {
+router.get('/health', async (req, res) => {
   try {
     const check = {
       message: 'OK',
