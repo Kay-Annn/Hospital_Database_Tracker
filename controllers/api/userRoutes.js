@@ -44,9 +44,9 @@ router.post('/getUser', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userInfo.username;
       req.session.logged_in = true;
+
+      res.status(200).json(userInfo);
     });
-    // //renders homepage handlebar
-    res.render('homepage');
 
   } catch (err) {
     console.log(err)
