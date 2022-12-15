@@ -4,7 +4,7 @@ const { getAttributes } = require('../models/Floor');
 const checkAuth = require('../utils/auth');
 
 router.get('/login', (req, res) => {
-  console.log("incomming login"+ req)
+  console.log("incomming login"+ JSON.stringify(req))
   // If the user is already logged in, redirect the request to homepage 
   if (req.session.logged_in) {
     res.redirect('/homepage');
