@@ -18,6 +18,11 @@
     "nodemon": "^2.0.20",
     "sequelize": "^6.26.0"
   },
+
+  "engines": {
+    "node": "16.18.0"
+  },
+
   "devDependencies": {
     "eslint": "^8.29.0"
   }
