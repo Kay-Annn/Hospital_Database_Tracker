@@ -1,18 +1,15 @@
 const router = require('express').Router();
 const { User, Employee } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const userInfo = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userInfo.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
-    });
+    const check = {
+      message: 'OK',
+      timestamp: Date.now()
+    };
+    res.send(check);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -72,12 +69,12 @@ router.post('/signupUser', async (req, res) => {
     if (userInfo.dataValues) {
       const role = await Employee.create({
         role: req.body.role,
-        user_id:userInfo.dataValues.id
+        user_id: userInfo.dataValues.id
       }
       );
     }
 
-    
+
 
     req.session.save(() => {
       req.session.user_id = userInfo.username;
@@ -85,7 +82,7 @@ router.post('/signupUser', async (req, res) => {
 
       res.status(200).json(userInfo);
     });
-    
+
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
