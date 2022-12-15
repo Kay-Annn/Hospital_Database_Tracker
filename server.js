@@ -17,6 +17,7 @@ const hbs = exphbs.create({ helpers });
 const options = {
   secret:'mysecret',
   proxy: true,
+  name: 'hospitalapp',
   cookie: {
     maxAge: 1000 * 60 * 60 * 48,
     secure: true,
