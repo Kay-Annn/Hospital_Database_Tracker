@@ -58,7 +58,6 @@ router.post('/getUser', async (req, res) => {
 
 router.post('/signupUser', async (req, res) => {
   try {
-
     // check user e-mail exist
     console.log(req.body.username)
     const userInfo = await User.create({
