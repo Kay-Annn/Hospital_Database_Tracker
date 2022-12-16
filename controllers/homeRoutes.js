@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/homepage', checkAuth, async (req, res) => {
-  console.log("incomming hompage"+ req)
+  console.log("incoming hompage"+ req)
   const userInfo = await User.findOne({
     where: { username: req.session.user_id },
     include: { model: Employee },
